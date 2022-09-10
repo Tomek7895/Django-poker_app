@@ -1,0 +1,15 @@
+{% extends 'szablon.html' %}
+
+{% block layout %}
+{% if tournament_user %}
+    <h1>{{ tournament_user.name }}</h1>
+    <p> Buy-in: {{ tournament_user.buy_in }} </p>
+    <p> START: {{ tournament_user.date }} </p>
+    <p> GTD: {{ tournament_user.prizepool }}$ </p>
+
+{% else %}
+    <p>Nie ma takiego turnieju </p>
+
+
+{% endif %}
+{% endblock layout %}

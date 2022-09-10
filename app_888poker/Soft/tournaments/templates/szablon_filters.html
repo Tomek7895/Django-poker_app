@@ -1,0 +1,13 @@
+
+{% block filter %}
+<h1>ABC</h1>
+{% for tour in all_tournaments %}
+    {% if tour.buy_in <= 10 %}
+         <p><a href = "/tournament/{{ tour.id }}/"> 'Buy-In <=10$' </a></p>
+
+    {% endif %}
+
+
+{% endfor %}
+
+{% endblock filter %}

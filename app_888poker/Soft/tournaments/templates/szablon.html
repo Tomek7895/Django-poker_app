@@ -1,0 +1,31 @@
+<div style="clear:both"></div>
+<div style="width:200px; float:left">
+    <h1> LOG IN </h1>
+</div>
+
+<div style="width:700; float:left">
+
+    <h1> FILTERS </h1>
+    {% for game in game_type %}
+        <p><a href = "/tournament/2/"> {{ game.name }} Filters </a></p>
+    {% endfor %}
+
+
+</div>
+
+<div style="clear:both"></div>
+<div style="width:200px; float:left">
+<h3> MENU </h3>
+
+{% for game in game_type %}
+
+
+<p><a href = "/game_type/{{ game.id }}/"> {{ game.name }}</a> </p>
+
+{% endfor %}
+    </div>
+
+    <div style="width:700; float:left">
+        {% block layout %}   {% endblock layout %}
+    </div>
+    <div style="clear:both"></div>

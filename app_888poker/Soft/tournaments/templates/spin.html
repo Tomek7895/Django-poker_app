@@ -1,0 +1,15 @@
+{% extends 'szablon.html' %}
+
+{% block layout %}
+{% if spin_type %}
+    <h1>{{ spin_type.name }}</h1>
+    <h1> Buy-In: {{ spin_type.buy_in }}$ </h1>
+    <h3> Prizepool: {{ spin_type.total_prizepool }}$ </h3>
+    <p> Blind level: {{ spin_type.blind_level }} min </p>
+
+{% else %}
+    <p>Nie ma takiego spina </p>
+
+
+{% endif %}
+{% endblock layout %}

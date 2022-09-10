@@ -1,0 +1,15 @@
+{% extends 'szablon.html' %}
+
+{% block layout %}
+{% if cash_type %}
+    <h1>{{ cash_type.prices }}</h1>
+    <p> Min Buy-in: {{ cash_type.min_buy_in }}$ </p>
+    <p> Max Buy-in: {{ cash_type.max_buy_in }}$ </p>
+    <p> Players: {{ cash_type.players }} </p>
+
+{% else %}
+    <p>Nie ma takiego turnieju </p>
+
+
+{% endif %}
+{% endblock layout %}

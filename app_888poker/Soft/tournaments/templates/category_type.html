@@ -1,0 +1,35 @@
+{% extends 'szablon.html' %}
+
+{% block layout %}
+
+    {% if category_type.name == 'Tournaments' %}
+        <h1> NAME </h1>
+        {% for tour in all_tournaments %}
+            <p><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></p>
+        {% endfor %}
+
+        <div style="width:200; float:left">
+            <h1> BUY-IN </h1>
+            {% for tour in all_tournaments %}
+            <h3> {{ tour.buy_in }} </h3>
+            {% endfor %}
+        </div>
+
+    {% elif category_type.name == 'Cash Games' %}
+        {% for cash in all_cashes %}
+            <p><a href = "/cash/{{ cash.id }}/"> {{ cash.prices }} </a></p>
+        {% endfor %}
+
+    {% elif category_type.name == 'Sit $ Go' %}
+        {% for sit in all_sit_go %}
+            <p><a href = "/sit_go/{{ sit.id }}/"> {{ sit.name }} </a></p>
+        {% endfor %}
+
+    {% elif category_type.name == 'Spins' %}
+        {% for spin in all_spins %}
+            <p><a href = "/spin/{{ spin.id }}/"> {{ spin.buy_in }} </a></p>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock layout %}

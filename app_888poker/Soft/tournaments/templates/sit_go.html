@@ -1,0 +1,15 @@
+{% extends 'szablon.html' %}
+
+{% block layout %}
+{% if sit_go_type %}
+    <h1>{{ sit_go_type.name }}</h1>
+    <p> Players: {{ sit_go_type.players}} </p>
+    <p> Buy-in: {{ sit_go_type.buy_in }}$ </p>
+    <p> Status: {{ sit_go_type.status }} </p>
+
+{% else %}
+    <p>Nie ma takiego sit&go </p>
+
+
+{% endif %}
+{% endblock layout %}
