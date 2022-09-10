@@ -4,10 +4,9 @@
 </div>
 
 <div style="width:700; float:left">
-
     <h1> FILTERS </h1>
     {% for game in game_type %}
-        <p><a href = "/tournament/2/"> {{ game.name }} Filters </a></p>
+        <p><a href = "/game_type/{{ game.id }}/filter/"> {{ game.name }} Filters </a></p>
     {% endfor %}
 
 

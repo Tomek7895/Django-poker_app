@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Tournaments, Game_Type, Cash_Games, Sit_Go, Spin
+from .forms import TournamentForm
 
 # def start(request):
 #     tournament = Tournaments.objects.all()
@@ -61,7 +62,27 @@ def spin(request,id):
             'game_type' : game_type}
     return render (request, 'spin.html', data)
 
-def tournament_filers(request):
+def tournament_filter(request,id):
     all_tournaments = Tournaments.objects.all()
-    data ={'all_tournaments' : all_tournaments}
+    all_cashes = Cash_Games.objects.all()
+    all_sit_go = Sit_Go.objects.all()
+    all_spins = Spin.objects.all()
+    game_type = Game_Type.objects.all()
+    category_type = Game_Type.objects.get(pk=id)
+    data ={'all_tournaments' : all_tournaments,
+           'game_type' : game_type,
+           'category_type' : category_type,
+           'all_cashes' : all_cashes,
+           'all_sit_go': all_sit_go,
+           'all_spins' : all_spins}
     return render(request, 'szablon_filters.html', data)
+
+def tournament_create_view(request):
+    form = TournamentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+
+    data = {'form' : form}
+    return render(request, 'create_view.html', data)
+
+

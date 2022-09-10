@@ -1,13 +1,26 @@
+{% extends 'szablon.html' %}
 
-{% block filter %}
-<h1>ABC</h1>
-{% for tour in all_tournaments %}
-    {% if tour.buy_in <= 10 %}
-         <p><a href = "/tournament/{{ tour.id }}/"> 'Buy-In <=10$' </a></p>
+{% block layout %}
 
-    {% endif %}
+{% if category_type.id == 1 %}
+<h1>All Tournaments: </h1>
+    {% for tour in all_tournaments %}
+        <li>{{ tour.name }}</li>
+        {% if tour.buy_in <= 10 %}
+             <p><a href = "/game_type/{{ category_type.id }}/filter/"> Buy-In <=10$ </a></p>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if category_type.id == 2 %}
+<h1>All Cashes: </h1>
+    {% for cash in all_cashes %}
+        <li>{{ cash.prices }}</li>
+            {% if cash.min_buy_in <= 1.00 %}
+                <p><a href = "/game_type/{{ category_type.id }}/filter/"> Min_buy_in <= 1.00$ </a></p>
+            {% endif %}
+    {% endfor %}
+{% endif %}
 
 
-{% endfor %}
-
-{% endblock filter %}
+{% endblock layout %}

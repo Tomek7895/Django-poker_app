@@ -28,7 +28,7 @@ class Tournaments(models.Model):
     )
 
     name = models.CharField(max_length=50)
-    date = models.DateTimeField(auto_now=False, auto_now_add=False)
+    date = models.DateTimeField(auto_now=False, auto_now_add=False, blank=True, null=True)
     buy_in = models.DecimalField(max_digits=12, decimal_places=2)
     players = models.IntegerField(blank=True, null=True)
     prizepool = models.DecimalField(max_digits=12, decimal_places=2)
