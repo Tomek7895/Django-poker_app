@@ -62,7 +62,7 @@ def spin(request,id):
             'game_type' : game_type}
     return render (request, 'spin.html', data)
 
-def tournament_filter(request,id):
+def filter(request,id):
     all_tournaments = Tournaments.objects.all()
     all_cashes = Cash_Games.objects.all()
     all_sit_go = Sit_Go.objects.all()

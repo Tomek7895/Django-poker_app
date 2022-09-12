@@ -26,5 +26,5 @@ urlpatterns = [
     path('sit_go/<id>/', sit_go, name='sit_go'),
     path('spin/<id>/', spin, name='spin'),
     path('create', tournament_create_view),
-    path('game_type/<id>/filter/', tournament_filter),
+    path('game_type/<id>/filter/', filter),
 ]

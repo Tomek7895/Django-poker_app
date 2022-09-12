@@ -3,32 +3,92 @@
 {% block layout %}
 
     {% if category_type.name == 'Tournaments' %}
+        <div style="width:250; float:left">
         <h1> NAME </h1>
         {% for tour in all_tournaments %}
-            <p><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></p>
+            <h3><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></h3>
         {% endfor %}
+        </div>
 
-        <div style="width:200; float:left">
+        <div style="width:150; float:left">
             <h1> BUY-IN </h1>
             {% for tour in all_tournaments %}
-            <h3> {{ tour.buy_in }} </h3>
+            <h3> {{ tour.buy_in }} $ </h3>
             {% endfor %}
         </div>
 
+            <div style="width:150; float:left">
+            <h1> TYPE </h1>
+            {% for tour in all_tournaments %}
+            <h3> {{ tour.type }} </h3>
+            {% endfor %}
+            </div>
+
+            <div style="width:200; float:left">
+            <h1> START </h1>
+            {% for tour in all_tournaments %}
+            <h3> {{ tour.date }} </h3>
+            {% endfor %}
+            </div>
+
     {% elif category_type.name == 'Cash Games' %}
+        <div style="width:200; float:left">
+        <h1> STACKES </h1>
         {% for cash in all_cashes %}
-            <p><a href = "/cash/{{ cash.id }}/"> {{ cash.prices }} </a></p>
+            <h3><a href = "/cash/{{ cash.id }}/"> {{ cash.prices }} </a></h3>
         {% endfor %}
+        </div>
+
+        <div style="width:250; float:left">
+        <h1> MIN_BUY_IN </h1>
+        {% for cash in all_cashes %}
+            <h3> {{ cash.min_buy_in }} $ </h3>
+        {% endfor %}
+        </div>
+
+        <div style="width:250; float:left">
+        <h1> MAX_BUY_IN </h1>
+        {% for cash in all_cashes %}
+            <h3> {{ cash.max_buy_in }} $ </h3>
+        {% endfor %}
+        </div>
+
+        <div style="width:200; float:left">
+        <h1> PLAYERS </h1>
+        {% for cash in all_cashes %}
+            <h3> {{ cash.players }} </h3>
+        {% endfor %}
+        </div>
 
     {% elif category_type.name == 'Sit $ Go' %}
+        <div style="width:250; float:left">
+        <h1> SIT & GO's </h1>
         {% for sit in all_sit_go %}
-            <p><a href = "/sit_go/{{ sit.id }}/"> {{ sit.name }} </a></p>
+            <h3><a href = "/sit_go/{{ sit.id }}/"> {{ sit.name }} </a></h3>
         {% endfor %}
+        </div>
+
+        <div style="width:200; float:left">
+        <h1> BUY-IN </h1>
+        {% for sit in all_sit_go %}
+            <h3> {{ sit.buy_in }} </h3>
+        {% endfor %}
+        </div>
 
     {% elif category_type.name == 'Spins' %}
+        <div style="width:150; float:left">
+        <h1> SPIN's </h1>
         {% for spin in all_spins %}
-            <p><a href = "/spin/{{ spin.id }}/"> {{ spin.buy_in }} </a></p>
+            <h3><a href = "/spin/{{ spin.id }}/"> {{ spin.buy_in }} $ </a></h3>
         {% endfor %}
+        </div>
+
+        <div style="width:250; float:left">
+        <h1> BLIND LEVEL </h1>
+        {% for spin in all_spins %}
+            <h3> {{ spin.blind_level }} min </h3>
+        {% endfor %}
+        </div>
 
     {% endif %}
 

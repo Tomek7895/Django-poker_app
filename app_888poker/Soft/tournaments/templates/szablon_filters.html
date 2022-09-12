@@ -6,41 +6,160 @@
 <h1>All Tournaments: </h1>
     {% for tour in all_tournaments %}
         <li>{{ tour.name }}</li>
-        {% if tour.buy_in <= 10 %}
-             <p><a href = "/game_type/{{ category_type.id }}/filter/"> Buy-In <=10$ </a></p>
-        {% endif %}
-    {% endfor %}
+`       {% endfor %}
+<div style="width:200; float:left">
+        <h2>Buy-In <=20$</h2>
+        {% for tour in all_tournaments %}
+            {% if tour.buy_in <= 20 %}
+                <p><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></p>
+                <p>Buy-In: {{ tour.buy_in }}$</p>
+            {% endif %}
+        {% endfor %}
+
+</div>
+
+<div style="width:200; float:left">
+        <h2>Buy-In <=40$</h2>
+        {% for tour in all_tournaments %}
+            {% if tour.buy_in <= 40 %}
+                <p><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></p>
+                <p>Buy-In: {{ tour.buy_in }}$</p>
+            {% endif %}
+        {% endfor %}
+</div>
+
+<div style="width:200; float:left">
+        <h2>Buy-In <=80$</h2>
+        {% for tour in all_tournaments %}
+            {% if tour.buy_in <= 80 %}
+                <p><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></p>
+                <p>Buy-In: {{ tour.buy_in }}$</p>
+            {% endif %}
+        {% endfor %}
+</div>
+
+<div style="width:200; float:left">
+        <h2>PKO</h2>
+        {% for tour in all_tournaments %}
+            {% if tour.type == "PKO" %}
+                <p><a href = "/tournament/{{ tour.id }}/"> {{ tour.name }} </a></p>
+                <p>Type: {{ tour.type }}</p>
+            {% endif %}
+        {% endfor %}
+</div>
 {% endif %}
 
 {% if category_type.id == 2 %}
 <h1>All Cashes: </h1>
     {% for cash in all_cashes %}
         <li>{{ cash.prices }}</li>
-            {% if cash.min_buy_in <= 1.00 %}
-                <p><a href = "/game_type/{{ category_type.id }}/filter/"> Min_buy_in <= 1.00$ </a></p>
-            {% endif %}
-
     {% endfor %}
+
+    <div style="width:200; float:left">
+        <h3>Blinds <= 0.05/0.10$</h3>
+        {% for cash in all_cashes %}
+            {% if cash.max_buy_in <= 10 %}
+                <p><a href = "/cash/{{ cash.id }}/"> {{ cash.prices }} </a></p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div style="width:200; float:left">
+        <h3>Blinds <= 0.25/0.50$</h3>
+        {% for cash in all_cashes %}
+            {% if cash.max_buy_in <= 50 %}
+                <p><a href = "/cash/{{ cash.id }}/"> {{ cash.prices }} </a></p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div style="width:200; float:left">
+        <h3>Blinds <= 1.00/2.00$</h3>
+        {% for cash in all_cashes %}
+            {% if cash.max_buy_in <= 200 %}
+                <p><a href = "/cash/{{ cash.id }}/"> {{ cash.prices }} </a></p>
+            {% endif %}
+        {% endfor %}
+    </div>
+
 {% endif %}
+
+
+
 
 {% if category_type.id == 3 %}
 <h1>All Sit & Go's: </h1>
     {% for sit in all_sit_go %}
         <li>{{ sit.name }}</li>
+    {% endfor %}
+
+
+    <div style="width:200; float:left">
+        <h3>Buy-In <= 1.00$</h3>
+        {% for sit in all_sit_go %}
             {% if sit.buy_in <= 1.00 %}
-                <p><a href = "/game_type/{{ category_type.id }}/filter/"> Buy_in <= 1.00$ </a></p>
+                <p><a href = "/sit_go/{{ sit.id }}/"> {{ sit.name }} </a></p>
             {% endif %}
     {% endfor %}
+    </div>
+
+
+    <div style="width:200; float:left">
+        <h3>Buy-In <= 5.00$</h3>
+        {% for sit in all_sit_go %}
+            {% if sit.buy_in <= 5.00 %}
+                <p><a href = "/sit_go/{{ sit.id }}/"> {{ sit.name }} </a></p>
+            {% endif %}
+    {% endfor %}
+    </div>
+
+    <div style="width:200; float:left">
+        <h3>Buy-In <= 20.00$</h3>
+        {% for sit in all_sit_go %}
+            {% if sit.buy_in <= 20.00 %}
+                <p><a href = "/sit_go/{{ sit.id }}/"> {{ sit.name }} </a></p>
+            {% endif %}
+    {% endfor %}
+    </div>
+
+
 {% endif %}
+
+
 
 {% if category_type.id == 4 %}
 <h1>All Spin's: </h1>
     {% for spin in all_spins %}
         <li>{{ spin.buy_in }}</li>
-            {% if spin.buy_in <= 5.00 %}
-                <p><a href = "/game_type/{{ category_type.id }}/filter/"> Buy_in <= 5.00$ </a></p>
+    {% endfor %}
+
+    <div style="width:200; float:left">
+        <h3>Buy-In <= 1.00$</h3>
+        {% for spin in all_spins %}
+            {% if spin.buy_in <= 1.00 %}
+                <p><a href = "/spin/{{ spin.id }}/"> {{ spin.buy_in }} </a></p>
             {% endif %}
     {% endfor %}
+    </div>
+
+    <div style="width:200; float:left">
+        <h3>Buy-In <= 5.00$</h3>
+        {% for spin in all_spins %}
+            {% if spin.buy_in <= 5.00 %}
+                <p><a href = "/spin/{{ spin.id }}/"> {{ spin.buy_in }} </a></p>
+            {% endif %}
+    {% endfor %}
+    </div>
+
+    <div style="width:200; float:left">
+        <h3>Buy-In <= 20.00$</h3>
+        {% for spin in all_spins %}
+            {% if spin.buy_in <= 20.00 %}
+                <p><a href = "/spin/{{ spin.id }}/"> {{ spin.buy_in }} </a></p>
+            {% endif %}
+    {% endfor %}
+    </div>
+
 {% endif %}
 
 
