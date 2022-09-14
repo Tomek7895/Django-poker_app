@@ -1,0 +1,10 @@
+{% extends "szablon.html" %}
+
+{% block layout %}
+    <h2>You Have benn Logged Out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+{% endblock layout %}

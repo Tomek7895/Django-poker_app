@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/To_GitHub.iml" filepath="$PROJECT_DIR$/.idea/To_GitHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nowa_poker_app/.idea/nowa_poker_app.iml" filepath="$PROJECT_DIR$/../nowa_poker_app/.idea/nowa_poker_app.iml" />
     </modules>
   </component>
 </project>
