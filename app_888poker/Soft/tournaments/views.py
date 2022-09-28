@@ -2,6 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Tournaments, Game_Type, Cash_Games, Sit_Go, Spin
 from .forms import TournamentForm
+from .serializers import TournamentsSerializer, Cash_GamesSerializer, Sit_GoSerializer, SpinSerializer
+from rest_framework import status, generics, mixins, viewsets
+from rest_framework.response import Response
+
 
 # def start(request):
 #     tournament = Tournaments.objects.all()
@@ -84,5 +88,21 @@ def tournament_create_view(request):
 
     data = {'form' : form}
     return render(request, 'create_view.html', data)
+
+class TournamentViewSet(viewsets.ModelViewSet):
+    serializer_class = TournamentsSerializer
+    queryset = Tournaments.objects.all()
+
+class Cash_GamesViewSet(viewsets.ModelViewSet):
+    serializer_class = Cash_GamesSerializer
+    queryset = Cash_Games.objects.all()
+
+class Sit_GoViewSet(viewsets.ModelViewSet):
+    serializer_class = Sit_GoSerializer
+    queryset = Sit_Go.objects.all()
+
+class SpinViewSet(viewsets.ModelViewSet):
+    serializer_class = SpinSerializer
+    queryset = Spin.objects.all()
 
 
